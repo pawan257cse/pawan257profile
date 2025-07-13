@@ -20,7 +20,7 @@ const ContactQuickAccess: React.FC = () => {
       label: 'Send Email',
       value: 'pawan841509@gmail.com',
       icon: <Mail size={20} />,
-      action: () => window.open('mailto:pawankumar@gmail.com', '_self')
+      action: () => window.open('mailto:pawan841509@gmail.com', '_self')
     },
     {
       type: 'location',
