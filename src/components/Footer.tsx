@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, ArrowUp } from 'lucide-react';
+import { Heart, ArrowUp, Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -24,6 +24,33 @@ const Footer = () => {
               <p className="text-gray-400 text-xs sm:text-sm flex items-center">
                 Made with <Heart className="text-red-500 mx-1 sm:w-4 sm:h-4" size={14} /> by Pawan Kumar
               </p>
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <a
+                    href="https://github.com/pawan2570"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    aria-label="Visit Pawan Kumar's GitHub profile"
+                  >
+                    <Github size={18} className="sm:w-5 sm:h-5" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/in/pawan-kumar-60a409251"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    aria-label="Visit Pawan Kumar's LinkedIn profile"
+                  >
+                    <Linkedin size={18} className="sm:w-5 sm:h-5" />
+                  </a>
+                  <a
+                    href="mailto:pawan841509@gmail.com"
+                    className="text-gray-400 hover:text-white transition-colors duration-200"
+                    aria-label="Send email to Pawan Kumar"
+                  >
+                    <Mail size={18} className="sm:w-5 sm:h-5" />
+                  </a>
+                </div>
               <button
                 onClick={scrollToTop}
                 className="bg-gradient-to-r from-cyan-500 to-pink-500 hover:from-cyan-600 hover:to-pink-600 text-white p-2 rounded-lg transition-colors duration-200 shadow-lg shadow-cyan-500/25"

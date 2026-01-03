@@ -12,7 +12,6 @@ import Footer from './components/Footer';
 import Chatbot from './components/Chatbot';
 import ContactQuickAccess from './components/ContactQuickAccess';
 import SplashScreen from './components/SplashScreen';
-import CustomCursor from './components/CustomCursor';
 
 // Theme context
 interface ThemeContextType {
@@ -57,7 +56,6 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ isDarkMode, toggleTheme }}>
-      <CustomCursor />
       {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
       <div className={`min-h-screen transition-all duration-300 ${
         isDarkMode 

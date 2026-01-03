@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Code, Wrench, Star, Award, Users, Zap, Target, TrendingUp, Globe, Database, Cloud, Shield, GitBranch, Palette, Monitor } from 'lucide-react';
 import { useTheme } from '../App';
 
 const Skills = () => {
   const { isDarkMode } = useTheme();
+
+  const [activeCategory, setActiveCategory] = useState<'all' | 'frontend' | 'backend' | 'cloud'>('all');
 
   // Enhanced Technical Skills with categories and context
   const technicalSkills = {
@@ -165,7 +167,7 @@ const Skills = () => {
   );
 
   return (
-    <section id="skills" className={`py-16 sm:py-20 md:py-24 relative overflow-hidden transition-colors duration-300 ${
+    <section id="skills" className={`py-12 sm:py-16 md:py-20 relative overflow-hidden transition-colors duration-300 ${
       isDarkMode 
         ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 
         : 'bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/50'
@@ -196,7 +198,7 @@ const Skills = () => {
               <Code size={16} className="text-emerald-500 mr-2 sm:w-[18px] sm:h-[18px]" />
               <span className="text-emerald-600 font-medium text-xs sm:text-sm uppercase tracking-wider">My Skills</span>
             </div>
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight ${
+            <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-5 leading-tight ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             }`}>
               What I Bring to the{' '}
@@ -218,8 +220,36 @@ const Skills = () => {
             }`}>
               Technical Expertise
             </h3>
+              {/* Category Filter */}
+              <div className="flex flex-wrap justify-center gap-3 mb-8" aria-label="Filter skills by category">
+                {[
+                  { id: 'all' as const, label: 'All Skills' },
+                  { id: 'frontend' as const, label: 'Frontend' },
+                  { id: 'backend' as const, label: 'Backend & Programming' },
+                  { id: 'cloud' as const, label: 'Cloud & DevOps' },
+                ].map((filter) => (
+                  <button
+                    key={filter.id}
+                    type="button"
+                    onClick={() => setActiveCategory(filter.id)}
+                    className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+                      activeCategory === filter.id
+                        ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-300/40'
+                        : isDarkMode
+                          ? 'bg-gray-800 text-gray-200 border border-gray-700 hover:border-emerald-400 hover:text-emerald-300'
+                          : 'bg-white text-gray-700 border border-emerald-100 hover:border-emerald-400 hover:text-emerald-600 shadow-sm'
+                    }`}
+                    aria-pressed={activeCategory === filter.id}
+                  >
+                    {filter.label}
+                  </button>
+                ))}
+              </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
-              {Object.entries(technicalSkills).map(([key, category]) => (
+                {(activeCategory === 'all'
+                  ? Object.entries(technicalSkills)
+                  : Object.entries(technicalSkills).filter(([key]) => key === activeCategory)
+                ).map(([key, category]) => (
             <SkillCard 
                   key={key}
                   title={category.title}
@@ -241,6 +271,11 @@ const Skills = () => {
                       <div
                             className={`h-2 sm:h-3 rounded-full bg-gradient-to-r ${category.color} transition-all duration-1000 ease-out`}
                         style={{ width: `${skill.level}%` }}
+                        role="progressbar"
+                        aria-valuenow={skill.level}
+                        aria-valuemin={0}
+                        aria-valuemax={100}
+                        aria-label={`${skill.name} proficiency ${skill.level} percent`}
                       ></div>
                     </div>
                         <p className={`text-xs sm:text-sm mt-1 ${

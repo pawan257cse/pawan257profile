@@ -105,7 +105,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className={`py-16 sm:py-20 md:py-24 relative overflow-hidden transition-colors duration-300 ${
+    <section id="education" className={`py-12 sm:py-16 md:py-20 relative overflow-hidden transition-colors duration-300 ${
       isDarkMode 
         ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 
         : 'bg-gradient-to-br from-white via-emerald-50/30 to-teal-50/50'
@@ -136,7 +136,7 @@ const Education = () => {
               <GraduationCap size={16} className="text-emerald-500 mr-2 sm:w-[18px] sm:h-[18px]" />
               <span className="text-emerald-600 font-medium text-xs sm:text-sm uppercase tracking-wider">Education</span>
             </div>
-            <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight ${
+            <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 sm:mb-5 leading-tight ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             }`}>
               Academic{' '}

@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ExternalLink, ArrowDown, MapPin, Calendar, Heart } from 'lucide-react';
-import profileImg from '../assets/profile.png';
-import resumePdf from '../assets/pawanvgu.pdf';
+import profileImg1 from '../assets/IMG_20200827_061220.jpg';
+import profileImg2 from '../assets/IMG_20200907_093356.jpg';
+import profileImg3 from '../assets/IMG_20220125_114404_438.jpg';
+import profileImg4 from '../assets/IMG_20230301_183918_0331.jpg';
 import { useTheme } from '../App';
+
+// Public path for resume PDF (place file as public/PAWANvgu.pdf)
+const resumePdf = '/PAWANvgu.pdf';
 
 interface LogoPosition {
   x: number;
@@ -16,6 +21,7 @@ interface LogoPosition {
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   const roles = [
     'Fullstack Developer....',
     'React & Node.js ...',
@@ -26,6 +32,13 @@ const Hero = () => {
   ];
   const [logoPositions, setLogoPositions] = useState<LogoPosition[]>([]);
   const { isDarkMode } = useTheme();
+
+  const profileImages = [
+    profileImg1,
+    profileImg2,
+    profileImg3,
+    profileImg4,
+  ];
 
   // Typewriter effect state
   const [displayedText, setDisplayedText] = useState('');
@@ -78,6 +91,15 @@ const Hero = () => {
       clearInterval(positionInterval);
     };
   }, []);
+
+  // Auto-change profile photo every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhotoIndex((prev) => (prev + 1) % profileImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [profileImages.length]);
 
   // Typewriter effect logic
   useEffect(() => {
@@ -173,8 +195,8 @@ const Hero = () => {
           {/* Left Content - Text */}
           <div className={`w-full lg:w-1/2 text-center lg:text-left space-y-6 md:space-y-8 transition-all duration-1000 ease-out
             ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-            <div className="space-y-4 md:space-y-6">
-              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight ${
+            <div className="space-y-3 md:space-y-4">
+              <h1 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight ${
                 isDarkMode ? 'text-white' : 'text-gray-900'
               }`}>
                 Hello, I'm{' '}
@@ -185,6 +207,11 @@ const Hero = () => {
                   <div className="absolute -inset-1 bg-gradient-to-r from-emerald-200 via-teal-200 to-cyan-200 rounded-lg blur-md opacity-10"></div>
                 </span>
               </h1>
+              <p className={`text-sm sm:text-base md:text-lg font-medium ${
+                isDarkMode ? 'text-emerald-300' : 'text-emerald-700'
+              }`}>
+                Fullstack Developer · React · Node.js · Docker · AWS
+              </p>
               
               <div className="h-12 sm:h-16 md:h-20 flex items-center justify-center lg:justify-start">
                 <div className="relative h-6 sm:h-8 md:h-10">
@@ -216,11 +243,23 @@ const Hero = () => {
               <a
                 href={resumePdf}
                 download
-                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 text-sm sm:text-base md:text-lg w-full sm:w-auto justify-center"
+                className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-lg hover:from-emerald-600 hover:to-teal-600 transition-all duration-300 text-sm sm:text-base md:text-lg w-full sm:w-auto justify-center transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
               >
                 <Download className="w-5 h-5" />
                 Download Resume
               </a>
+              <button
+                type="button"
+                onClick={scrollToProjects}
+                className={`inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-2.5 rounded-full font-semibold border text-sm sm:text-base md:text-lg w-full sm:w-auto justify-center transform hover:scale-[1.02] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
+                  isDarkMode
+                    ? 'border-emerald-400 text-emerald-200 bg-gray-900/40 hover:bg-gray-800/80'
+                    : 'border-emerald-500 text-emerald-700 bg-white hover:bg-emerald-50'
+                }`}
+              >
+                <ArrowDown className="w-5 h-5" />
+                View My Work
+              </button>
             </div>
 
             <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
@@ -239,11 +278,18 @@ const Hero = () => {
 
           {/* Right Content - Image */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center items-center relative">
-            <img
-              src={profileImg}
-              alt="Pawan"
-              className="w-full max-w-md h-auto"
-            />
+            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md h-72 sm:h-80 md:h-96 overflow-hidden rounded-2xl shadow-xl">
+              {profileImages.map((imgSrc, index) => (
+                <img
+                  key={index}
+                  src={imgSrc}
+                  alt="Portrait of Pawan Kumar, fullstack developer"
+                  className={`w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                    index === currentPhotoIndex ? 'opacity-100' : 'opacity-0 absolute inset-0 pointer-events-none'
+                  }`}
+                />
+              ))}
+            </div>
             {/* Yellow wavy underline SVG below the image */}
             <div className="-mt-8 w-3/4 max-w-xs md:max-w-md lg:max-w-md">
               <svg viewBox="0 0 300 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-10 animate-underline-wave">

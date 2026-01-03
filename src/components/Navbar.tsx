@@ -65,8 +65,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18 lg:h-20">
           
-          {/* Logo */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          {/* Logo - click to scroll to top/home */}
+          <button
+            type="button"
+            onClick={() => scrollToSection('#home')}
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer focus-visible:outline-none"
+          >
             <div className="relative">
               <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-emerald-400 via-teal-400 to-cyan-400 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-emerald-200/50">
                 <span className="text-white font-bold text-sm sm:text-lg lg:text-xl">PK</span>
@@ -84,7 +88,7 @@ const Navbar = () => {
                 Full stack developer
               </p>
             </div>
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden xl:flex items-center space-x-4 2xl:space-x-6">

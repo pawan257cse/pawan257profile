@@ -11,6 +11,9 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const [displayText, setDisplayText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
 
+  const TOTAL_DURATION = 3000; // total splash screen time in ms (including fade-out)
+  const FADE_DURATION = 500;   // fade-out duration in ms
+
   const techLogos = [
     { name: 'VS Code', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
     { name: 'HTML', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
@@ -45,8 +48,9 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
     const splashTimer = setTimeout(() => {
       setIsVisible(false);
-      setTimeout(onComplete, 500); // Wait for fade out animation
-    }, 3000); // Total 3 seconds
+      // Call onComplete after fade-out so total visible time is exactly 3 seconds
+      setTimeout(onComplete, FADE_DURATION);
+    }, TOTAL_DURATION - FADE_DURATION);
 
     return () => {
       clearInterval(logoTimer);
