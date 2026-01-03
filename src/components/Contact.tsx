@@ -73,7 +73,7 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/pawan2570',
+      href: 'https://github.com/pawan257cse',
       color: 'from-gray-400 to-gray-600',
       description: 'Code repositories'
     },

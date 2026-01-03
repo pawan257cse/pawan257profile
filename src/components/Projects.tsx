@@ -331,6 +331,18 @@ const Projects = () => {
             }`}>
               My blend of real-world projects and technical expertise—spanning web, AI/ML, Python, Docker, Linux, and Git—showcases my ability to deliver impactful solutions and collaborate effectively.
             </p>
+            <div className="mt-5 flex justify-center">
+              <a
+                href="https://github.com/pawan257cse"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-gray-900 via-gray-800 to-black text-white shadow-lg hover:shadow-xl hover:from-black hover:via-gray-900 hover:to-gray-800 transition-all duration-200"
+              >
+                <Github className="w-4 h-4" />
+                View All GitHub Repositories
+                <ExternalLink className="w-3 h-3" />
+              </a>
+            </div>
           </div>
 
           {/* Category Filter */}

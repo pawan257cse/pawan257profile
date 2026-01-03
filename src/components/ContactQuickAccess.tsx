@@ -39,9 +39,9 @@ const ContactQuickAccess: React.FC = () => {
     {
       type: 'github',
       label: 'GitHub',
-      value: 'github.com/pawan2570',
+      value: 'github.com/pawan257cse',
       icon: <Github size={20} />,
-      action: () => window.open('https://github.com/pawan2570', '_blank')
+      action: () => window.open('https://github.com/pawan257cse', '_blank')
     },
     {
       type: 'instagram',

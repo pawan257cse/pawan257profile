@@ -108,7 +108,7 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, setIsOpen }) => {
       location: "Mumbai, India",
       availability: "Available for freelance and full-time opportunities",
       social: {
-        github: "github.com/pawan",
+        github: "github.com/pawan257cse",
         linkedin: "linkedin.com/in/pawan",
         twitter: "twitter.com/pawan"
       }

@@ -390,7 +390,7 @@ const Skills = () => {
                   Let's Connect
                 </button>
                 <a
-                  href="https://github.com/pawan2570"
+                  href="https://github.com/pawan257cse"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border-2 rounded-xl sm:rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 text-base sm:text-lg ${
