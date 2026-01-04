@@ -103,13 +103,13 @@ const Chatbot: React.FC<ChatbotProps> = ({ isOpen, setIsOpen }) => {
       }
     ],
     contact: {
-      email: "pawan@example.com",
-      phone: "+91 98765 43210",
-      location: "Mumbai, India",
+      email: "pawan841509@gmail.com",
+      phone: "+91 8227031017",
+      location: "Jaipur, India",
       availability: "Available for freelance and full-time opportunities",
       social: {
         github: "github.com/pawan257cse",
-        linkedin: "linkedin.com/in/pawan",
+        linkedin: "www.linkedin.com/in/pawan-kumar-60a409251",
         twitter: "twitter.com/pawan"
       }
     },
@@ -232,10 +232,10 @@ I can help you with data extraction, parsing HTML, handling dynamic content, and
     if (message.includes('ai') || message.includes('machine learning') || message.includes('gemini') || message.includes('artificial intelligence')) {
       return `I work with various AI/ML technologies and can help you with:
       
-🤖 **AI Technologies**: Gemini API, OpenAI API, TensorFlow, PyTorch
-📊 **Data Analysis**: Pandas, NumPy, Scikit-learn
-🌐 **Web Scraping**: BeautifulSoup4, Selenium
-🔧 **Application**: Chatbot, data analysis, recommendation systems
+🤖 AI Technologies: Gemini API, OpenAI API, TensorFlow, PyTorch
+📊 Data Analysis: Pandas, NumPy, Scikit-learn
+🌐 Web Scraping: BeautifulSoup4, Selenium
+🔧 Application: Chatbot, data analysis, recommendation systems
 
 Would you like to see examples of any specific AI implementation or learn about web scraping techniques?`;
     }
@@ -244,7 +244,7 @@ Would you like to see examples of any specific AI implementation or learn about 
     if (message.includes('website') || message.includes('site') || message.includes('page') || message.includes('portfolio')) {
       return `This is my portfolio website built with modern technologies:
 
-🌐 **Features**:
+🌐 Features:
 • Dark/Light mode toggle
 • AI-powered chatbot (this one!)
 • Fully responsive design
@@ -252,14 +252,14 @@ Would you like to see examples of any specific AI implementation or learn about 
 • Contact form with EmailJS
 • Project showcase
 
-💻 **Technologies Used**:
+💻 Technologies Used:
 • React 18 with TypeScript
 • Tailwind CSS for styling
 • Vite for fast development
 • Gemini API for AI responses
 • EmailJS for contact form
 
-🎨 **Sections**: Hero, About, Skills, Projects, Experience, Education, Contact, Footer
+🎨 Sections: Hero, About, Skills, Projects, Experience, Education, Contact, Footer
 
 The website showcases my skills in frontend development, AI integration, and modern web technologies.`;
     }
@@ -270,9 +270,9 @@ The website showcases my skills in frontend development, AI integration, and mod
 
 ${portfolioData.about.description}
 
-📍 **Location**: ${portfolioData.about.location}
-🎓 **Education**: ${portfolioData.education[0].degree} from ${portfolioData.education[0].institution}
-🌍 **Languages**: ${portfolioData.about.languages.join(', ')}
+📍 Location: ${portfolioData.about.location}
+🎓 Education: ${portfolioData.education[0].degree} from ${portfolioData.education[0].institution}
+🌍 Languages: ${portfolioData.about.languages.join(', ')}
 
 I specialize in AI integration, web scraping, and modern web development. I love creating innovative solutions using cutting-edge technologies!`;
     }
@@ -281,10 +281,10 @@ I specialize in AI integration, web scraping, and modern web development. I love
     if (message.includes('skill') || message.includes('technology') || message.includes('tech stack') || message.includes('what can you do')) {
       return `My technical skills include:
 
-🤖 **AI/ML**: ${portfolioData.skills.ai_ml.join(', ')}
-🌐 **Frontend**: ${portfolioData.skills.frontend.join(', ')}
-⚙️ **Backend**: ${portfolioData.skills.backend.join(', ')}
-🗄️ **Database**: ${portfolioData.skills.database.join(', ')}
+🤖 AI/ML: ${portfolioData.skills.ai_ml.join(', ')}
+🌐 Frontend: ${portfolioData.skills.frontend.join(', ')}
+⚙️ Backend: ${portfolioData.skills.backend.join(', ')}
+🗄️ Database: ${portfolioData.skills.database.join(', ')}
 
 I'm particularly strong in React, Python, AI/ML, and web scraping technologies.`;
     }
@@ -293,7 +293,7 @@ I'm particularly strong in React, Python, AI/ML, and web scraping technologies.`
     if (message.includes('project') || message.includes('work') || message.includes('portfolio') || message.includes('what have you built')) {
       let response = "Here are my key projects:\n\n";
       portfolioData.projects.forEach((project, index) => {
-        response += `${index + 1}. **${project.name}**\n📝 ${project.description}\n🛠️ Technologies: ${project.tech.join(', ')}\n✨ Features: ${project.features.join(', ')}\n\n`;
+        response += `${index + 1}. ${project.name}\n📝 ${project.description}\n🛠️ Technologies: ${project.tech.join(', ')}\n✨ Features: ${project.features.join(', ')}\n\n`;
       });
       return response;
     }
@@ -302,7 +302,7 @@ I'm particularly strong in React, Python, AI/ML, and web scraping technologies.`
     if (message.includes('experience') || message.includes('work history') || message.includes('job') || message.includes('career')) {
       let response = "My work experience:\n\n";
       portfolioData.experience.forEach((exp, index) => {
-        response += `${index + 1}. **${exp.role}** at ${exp.company} (${exp.duration})\n📝 ${exp.description}\n🏆 Achievements: ${exp.achievements.join(', ')}\n\n`;
+        response += `${index + 1}. ${exp.role} at ${exp.company} (${exp.duration})\n📝 ${exp.description}\n🏆 Achievements: ${exp.achievements.join(', ')}\n\n`;
       });
       return response;
     }
@@ -311,12 +311,12 @@ I'm particularly strong in React, Python, AI/ML, and web scraping technologies.`
     if (message.includes('contact') || message.includes('email') || message.includes('phone') || message.includes('reach') || message.includes('hire')) {
       return `You can reach me at:
 
-📧 **Email**: ${portfolioData.contact.email}
-📱 **Phone**: ${portfolioData.contact.phone}
-📍 **Location**: ${portfolioData.contact.location}
-✅ **Availability**: ${portfolioData.contact.availability}
+📧 Email: ${portfolioData.contact.email}
+📱 Phone: ${portfolioData.contact.phone}
+📍 Location: ${portfolioData.contact.location}
+✅ Availability: ${portfolioData.contact.availability}
 
-🌐 **Social Media**:
+🌐 Social Media:
 • GitHub: ${portfolioData.contact.social.github}
 • LinkedIn: ${portfolioData.contact.social.linkedin}
 • Twitter: ${portfolioData.contact.social.twitter}
@@ -327,11 +327,11 @@ I'm available for freelance projects, full-time opportunities, and collaboration
     // Default response
     return `I can help you with information about:
 
-🤖 **AI/ML** and web scraping
-💻 **Skills** and technologies
-📁 **Projects** and experience
-📞 **Contact** information
-🌐 **Website** features
+🤖 AI/ML and web scraping
+💻 Skills and technologies
+📁 Projects and experience
+📞 Contact information
+🌐 Website features
 
 Just ask me anything about my portfolio, skills, projects, or technical expertise!`;
   };
@@ -364,10 +364,10 @@ print(f"{len(links)} लिंक मिले")
     if (message.includes('ai') || message.includes('machine learning')) {
       return `मैं विभिन्न AI/ML तकनीकों के साथ काम करता हूं:
 
-🤖 **AI तकनीकें**: Gemini API, OpenAI API, TensorFlow, PyTorch
-📊 **डेटा विश्लेषण**: Pandas, NumPy, Scikit-learn
-🌐 **Web Scraping**: BeautifulSoup4, Selenium
-🔧 **एप्लिकेशन**: चैटबॉट, डेटा विश्लेषण, सिफारिश सिस्टम
+🤖 AI तकनीकें: Gemini API, OpenAI API, TensorFlow, PyTorch
+📊 डेटा विश्लेषण: Pandas, NumPy, Scikit-learn
+🌐 Web Scraping: BeautifulSoup4, Selenium
+🔧 एप्लिकेशन: चैटबॉट, डेटा विश्लेषण, सिफारिश सिस्टम
 
 क्या आप किसी विशेष AI प्रोजेक्ट के बारे में जानना चाहते हैं?`;
     }
@@ -377,9 +377,9 @@ print(f"{len(links)} लिंक मिले")
 
 ${portfolioData.about.description}
 
-📍 **स्थान**: ${portfolioData.about.location}
-🎓 **शिक्षा**: ${portfolioData.education[0].degree}
-🌍 **भाषाएं**: ${portfolioData.about.languages.join(', ')}
+📍 स्थान: ${portfolioData.about.location}
+🎓 शिक्षा: ${portfolioData.education[0].degree}
+🌍 भाषाएं: ${portfolioData.about.languages.join(', ')}
 
 मैं AI इंटीग्रेशन, web scraping, और modern web development में विशेषज्ञता रखता हूं।`;
     }
@@ -387,10 +387,10 @@ ${portfolioData.about.description}
     if (message.includes('skill') || message.includes('technology')) {
       return `मेरे technical skills में शामिल हैं:
 
-🤖 **AI/ML**: ${portfolioData.skills.ai_ml.join(', ')}
-🌐 **Frontend**: ${portfolioData.skills.frontend.join(', ')}
-⚙️ **Backend**: ${portfolioData.skills.backend.join(', ')}
-🗄️ **Database**: ${portfolioData.skills.database.join(', ')}
+🤖 AI/ML: ${portfolioData.skills.ai_ml.join(', ')}
+🌐 Frontend: ${portfolioData.skills.frontend.join(', ')}
+⚙️ Backend: ${portfolioData.skills.backend.join(', ')}
+🗄️ Database: ${portfolioData.skills.database.join(', ')}
 
 मैं React, Python, AI/ML, और web scraping में मजबूत हूं।`;
     }
@@ -398,9 +398,9 @@ ${portfolioData.about.description}
     if (message.includes('project') || message.includes('work')) {
       return `मेरे मुख्य प्रोजेक्ट्स:
 
-1. **AI-Powered E-Commerce Platform**: AI सिफारिशों के साथ पूर्ण e-commerce समाधान
-2. **Web Scraping Dashboard**: BeautifulSoup4 के साथ real-time डेटा संग्रह
-3. **Portfolio Website**: Gemini API के साथ AI चैटबॉट
+1. AI-Powered E-Commerce Platform: AI सिफारिशों के साथ पूर्ण e-commerce समाधान
+2. Web Scraping Dashboard: BeautifulSoup4 के साथ real-time डेटा संग्रह
+3. Portfolio Website: Gemini API के साथ AI चैटबॉट
 
 सभी प्रोजेक्ट्स modern technologies का उपयोग करते हैं।`;
     }
@@ -408,11 +408,11 @@ ${portfolioData.about.description}
     if (message.includes('contact') || message.includes('email') || message.includes('phone')) {
       return `मुझसे संपर्क करने के लिए:
 
-📧 **ईमेल**: ${portfolioData.contact.email}
-📱 **फोन**: ${portfolioData.contact.phone}
-📍 **स्थान**: ${portfolioData.contact.location}
+📧 ईमेल: ${portfolioData.contact.email}
+📱 फोन: ${portfolioData.contact.phone}
+📍 स्थान: ${portfolioData.contact.location}
 
-🌐 **सोशल मीडिया**:
+🌐 सोशल मीडिया:
 • GitHub: ${portfolioData.contact.social.github}
 • LinkedIn: ${portfolioData.contact.social.linkedin}
 
@@ -421,11 +421,11 @@ ${portfolioData.about.description}
 
     return `मैं आपकी मदद कर सकता हूं:
 
-🤖 **AI/ML** और web scraping के बारे में
-💻 **Skills** और technologies के बारे में
-📁 **Projects** और experience के बारे में
-📞 **Contact** information के बारे में
-🌐 **Website** features के बारे में
+🤖 AI/ML और web scraping के बारे में
+💻 Skills और technologies के बारे में
+📁 Projects और experience के बारे में
+📞 Contact information के बारे में
+🌐 Website features के बारे में
 
 बस मुझसे कुछ भी पूछें!`;
   };
@@ -544,7 +544,7 @@ ${portfolioData.about.description}
 
   return (
     <>
-      {/* Chatbot Toggle Button */}
+      {/ Chatbot Toggle Button /}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
@@ -552,10 +552,10 @@ ${portfolioData.about.description}
         {isOpen ? <FaTimes size={24} /> : <FaRobot size={24} />}
       </button>
 
-      {/* Chatbot Window */}
+      {/ Chatbot Window /}
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-40 w-96 h-[500px] bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col">
-          {/* Header */}
+          {/ Header /}
           <div className="bg-gradient-to-r from-purple-600 to-blue-600 text-white p-4 rounded-t-lg flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <FaRobot size={20} />
@@ -572,7 +572,7 @@ ${portfolioData.about.description}
             </button>
           </div>
 
-          {/* Messages */}
+          {/ Messages /}
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
             {messages.map((message) => (
               <div
@@ -601,7 +601,7 @@ ${portfolioData.about.description}
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
+          {/ Input /}
           <div className="p-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex space-x-2">
               <input
